@@ -1,0 +1,62 @@
+from tkinter import*
+
+root = Tk()
+
+numeroA = IntVar()
+numeroB = IntVar()
+sum = IntVar()
+resta=IntVar()
+multiplicacion=IntVar()
+div=IntVar()
+
+def suma():
+    r = numeroA.get() + numeroB.get()
+    #textoNombre2.config(text=r)
+    
+    
+def igua():
+    if suma=="suma":
+        r = numeroA.get() + numeroB.get()
+    textoNombre2.config(text=r)
+
+def resta(numeroA,numeroB):
+    r = numeroA.get() - numeroB.get()
+
+def multi(numeroA,numeroB):
+    r = numeroA.get() * numeroB.get()
+
+def div(numeroA,numeroB):
+    r = numeroA.get() / numeroB.get()
+
+
+
+
+ventanaPrincipal=Frame(root)
+ventanaPrincipal.grid()
+
+
+titulo1=Label(ventanaPrincipal, text= "Calculadora", font=("Roboto",10)).grid(row=3, column=2)
+
+titulo2=Label(ventanaPrincipal, text= "Numero A", font=("Roboto",10)).grid(row=4, column=1)
+textoNombre= Entry(ventanaPrincipal, textvariable=numeroA, font=("Roboto",10)).grid(row=4, column=2)
+
+titulo3=Label(ventanaPrincipal, text= "Numero B", font=("Roboto",10)).grid(row=5, column=1)
+textoNombre1= Entry(ventanaPrincipal, textvariable=numeroB, font=("Roboto",10)).grid(row=5, column=2)
+
+titulo4=Label(ventanaPrincipal, text= "Resultado", font=("Roboto",10)).grid(row=6, column=1)
+textoNombre2= Label(ventanaPrincipal,text="",  font=("Roboto",10))
+textoNombre2.grid(row=6, column=2)
+
+botonsuma =Button(ventanaPrincipal, text = "SUMA", textvariable="suma", width=6, height=1).grid(row=8, column=1)
+
+botonmulti =Button(ventanaPrincipal, text = "MULT",command=multi, width=6, height=1).grid(row=8, column=2)
+
+botonC =Button(ventanaPrincipal, text = "C", width=6, height=1).grid(row=8, column=3)
+
+botonresta =Button(ventanaPrincipal, text = "RESTA",command=resta, width=6, height=1).grid(row=9, column=1)
+
+botondiv =Button(ventanaPrincipal, text = "DIVISION",command=div, width=6, height=1).grid(row=9, column=2)
+
+botonigual =Button(ventanaPrincipal, text = "=", width=6, height=1, command=igua).grid(row=9, column=3)
+
+root.mainloop()
